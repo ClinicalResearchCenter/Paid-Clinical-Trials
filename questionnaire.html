@@ -15,14 +15,20 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            padding: 0 10px; /* Add some padding to prevent cutoff on smaller screens */
+            box-sizing: border-box;
         }
         .form-container {
             background: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
             width: 100%;
+            max-width: 500px;
+            min-height: 500px; /* Make sure the form isn't too small on short screens */
+            margin: 0 auto;
+            box-sizing: border-box;
+            overflow-y: auto; /* Add scrolling if the form gets too long */
         }
         h1 {
             font-size: 1.8rem;
@@ -31,7 +37,7 @@
         }
         label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             font-weight: bold;
         }
         input, textarea, button, select {
@@ -53,57 +59,135 @@
             color: #fff;
             border: none;
             cursor: pointer;
+            padding: 12px;
+            font-size: 1rem;
         }
         button:hover {
             background: #0056b3;
+        }
+        .note {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: -10px;
+        }
+        .additional-info {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: -5px;
+        }
+
+        /* Media Queries for smaller screens */
+        @media screen and (max-width: 600px) {
+            .form-container {
+                padding: 15px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                min-height: 400px; /* Adjust min-height for smaller devices */
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            button {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="form-container">
-        <h1>Application</h1>
+        <!-- Language Toggle Button -->
+        <button id="language-toggle" style="position: absolute; top: 10px; right: 20px; padding: 5px 10px; font-size: 1rem; cursor: pointer;">Español</button>
+
+        <h1 id="form-title">Application Form</h1>
         <form action="https://formspree.io/f/xnnqvkaz" method="POST">
-            <label for="name">Full Name:</label>
+            <label for="name" id="label-name">Full Name:</label>
             <input type="text" id="name" name="name" placeholder="Enter your full name" required>
             
-            <label for="phone">Phone Number:</label>
+            <label for="phone" id="label-phone">Phone Number:</label>
             <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
 
-            <label for="email">Email Address:</label>
+            <label for="email" id="label-email">Email Address:</label>
             <input type="email" id="email" name="email" placeholder="Enter your email address" required>
             
-            <label for="age">Age:</label>
+            <label for="age" id="label-age">Age:</label>
             <input type="number" id="age" name="age" placeholder="Enter your age" required>
 
-            <label>Are you currently experiencing any acute illnesses (e.g., fever, cold)?</label>
+            <label id="label-norovirus">Have you had recent or ongoing norovirus symptoms (vomiting or diarrhea) within the last 14 days?</label>
             <div class="yes-no">
-                <label><input type="radio" name="acute_illness" value="Yes" required> Yes</label>
-                <label><input type="radio" name="acute_illness" value="No" required> No</label>
+                <label><input type="radio" name="norovirus_symptoms" value="Yes" required> Yes</label>
+                <label><input type="radio" name="norovirus_symptoms" value="No" required> No</label>
             </div>
 
-            <label>Have you had any chronic health conditions in the past 6 months?</label>
+            <label id="label-allergic-reactions">Have you had a history of severe allergic reactions to vaccines?</label>
             <div class="yes-no">
-                <label><input type="radio" name="chronic_conditions" value="Yes" required> Yes</label>
-                <label><input type="radio" name="chronic_conditions" value="No" required> No</label>
+                <label><input type="radio" name="allergic_reactions" value="Yes" required> Yes</label>
+                <label><input type="radio" name="allergic_reactions" value="No" required> No</label>
             </div>
 
-            <label>Are you currently taking any immunosuppressive medications?</label>
+            <label id="label-participation">Have you participated in another study in the past 6 months?</label>
             <div class="yes-no">
-                <label><input type="radio" name="immunosuppressive_medication" value="Yes" required> Yes</label>
-                <label><input type="radio" name="immunosuppressive_medication" value="No" required> No</label>
+                <label><input type="radio" name="participation_in_study" value="Yes" required> Yes</label>
+                <label><input type="radio" name="participation_in_study" value="No" required> No</label>
             </div>
 
-            <label>Are you pregnant or breastfeeding?</label>
+            <label id="label-surgery">Have you been scheduled for surgery within the next 28 days, or have you undergone major surgery within the past 28 days?</label>
             <div class="yes-no">
-                <label><input type="radio" name="pregnant_breastfeeding" value="Yes" required> Yes</label>
-                <label><input type="radio" name="pregnant_breastfeeding" value="No" required> No</label>
+                <label><input type="radio" name="surgery_schedule" value="Yes" required> Yes</label>
+                <label><input type="radio" name="surgery_schedule" value="No" required> No</label>
             </div>
 
-            <label for="additional-info">Additional Information:</label>
+            <label for="additional-info" id="label-additional-info">Additional Information:</label>
             <textarea id="additional-info" name="additional_info" placeholder="Provide any other relevant details" rows="4"></textarea>
+            <div class="additional-info" id="additional-info-text">Please include any important context or health details.</div>
             
-            <button type="submit">Submit Application</button>
+            <button type="submit" id="submit-btn">Submit Application</button>
+
+            <div class="note" id="note-text">
+                <p><strong>Note:</strong> All fields are required unless otherwise specified. If you have any concerns or questions, please contact us before submitting the form.</p>
+            </div>
         </form>
     </div>
-</body>
-</html>
+
+    <script>
+        // Language Toggle Functionality
+        const toggleButton = document.getElementById('language-toggle');
+        
+        const translations = {
+            en: {
+                title: "Application Form",
+                name: "Full Name:",
+                phone: "Phone Number:",
+                email: "Email Address:",
+                age: "Age:",
+                norovirus: "Have you had recent or ongoing norovirus symptoms (vomiting or diarrhea) within the last 14 days?",
+                allergicReactions: "Have you had a history of severe allergic reactions to vaccines?",
+                participation: "Have you participated in another study in the past 6 months?",
+                surgery: "Have you been scheduled for surgery within the next 28 days, or have you undergone major surgery within the past 28 days?",
+                additionalInfo: "Additional Information:",
+                additionalInfoText: "Please include any important context or health details.",
+                submit: "Submit Application",
+                note: "<strong>Note:</strong> All fields are required unless otherwise specified. If you have any concerns or questions, please contact us before submitting the form.",
+                toggleText: "Español"
+            },
+            es: {
+                title: "Formulario de Solicitud",
+                name: "Nombre Completo:",
+                phone: "Número de Teléfono:",
+                email: "Dirección de Correo Electrónico:",
+                age: "Edad:",
+                norovirus: "¿Ha tenido síntomas recientes o en curso de norovirus (vómitos o diarrea) en los últimos 14 días?",
+                allergicReactions: "¿Ha tenido antecedentes de reacciones alérgicas graves a las vacunas?",
+                participation: "¿Ha participado en otro estudio en los últimos 6 meses?",
+                surgery: "¿Tiene programada una cirugía en los próximos 28 días o ha sido sometido a una cirugía mayor en los últimos 28 días?",
+                additionalInfo: "Información Adicional:",
+                additionalInfoText: "Por favor incluya cualquier detalle relevante sobre su salud o contexto.",
+                submit: "Enviar Solicitud",
+                note: "<strong>Nota:</strong> Todos los campos son obligatorios, salvo que se indique lo contrario. Si tiene alguna pregunta o preocupación, comuníquese con nosotros antes de enviar el formulario.",
+                toggleText: "English"
+            }
+        };
+
+        // Switch between languages
+        toggleButton.addEventListener('click', () => {
+
