@@ -190,4 +190,26 @@
 
         // Switch between languages
         toggleButton.addEventListener('click', () => {
+            const currentLanguage = toggleButton.innerText.toLowerCase() === 'español' ? 'es' : 'en';
+
+            const language = currentLanguage === 'en' ? translations.en : translations.es;
+            document.getElementById('form-title').innerText = language.title;
+            document.getElementById('label-name').innerText = language.name;
+            document.getElementById('label-phone').innerText = language.phone;
+            document.getElementById('label-email').innerText = language.email;
+            document.getElementById('label-age').innerText = language.age;
+            document.getElementById('label-norovirus').innerText = language.norovirus;
+            document.getElementById('label-allergic-reactions').innerText = language.allergicReactions;
+            document.getElementById('label-participation').innerText = language.participation;
+            document.getElementById('label-surgery').innerText = language.surgery;
+            document.getElementById('label-additional-info').innerText = language.additionalInfo;
+            document.getElementById('additional-info-text').innerText = language.additionalInfoText;
+            document.getElementById('submit-btn').innerText = language.submit;
+            document.getElementById('note-text').innerHTML = language.note;
+            toggleButton.innerText = language.toggleText;
+        });
+    </script>
+</body>
+</html>
+
 
