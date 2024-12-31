@@ -24,7 +24,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 600px;
-            margin: 20px; /* Ensures space on smaller devices */
+            margin: 20px;
             box-sizing: border-box;
             text-align: center;
         }
@@ -119,7 +119,7 @@
 
         <div id="postpartum-depression" class="form-container">
             <h1>Postpartum Depression Study</h1>
-            <form action="https://formspree.io/f/postpartum" method="POST">
+            <form action="https://formspree.io/f/myzzdvoj" method="POST">
                 <label>Are you a female between 18 and 45 years old?</label>
                 <div class="yes-no">
                     <label><input type="radio" name="female_age" value="Yes" required> Yes</label>
@@ -132,12 +132,6 @@
                     <label><input type="radio" name="postpartum_period" value="No" required> No</label>
                 </div>
 
-                <label>Did your depressive symptoms start during your last trimester of pregnancy or within 4 weeks after delivery?</label>
-                <div class="yes-no">
-                    <label><input type="radio" name="depressive_symptoms" value="Yes" required> Yes</label>
-                    <label><input type="radio" name="depressive_symptoms" value="No" required> No</label>
-                </div>
-
                 <label>Are you willing to temporarily stop breastfeeding (if applicable) from the first day of the study until 14 days after starting the study medication?</label>
                 <div class="yes-no">
                     <label><input type="radio" name="stop_breastfeeding" value="Yes" required> Yes</label>
@@ -147,21 +141,8 @@
 
                 <label>Are you currently taking any antidepressants or anti-anxiety medications?</label>
                 <div class="yes-no">
-                    <label><input type="radio" name="current_medications" value="Yes, stable doses" required> Yes (If yes, are your doses stable and unchanged for at least 30 days?)</label>
                     <label><input type="radio" name="current_medications" value="Yes" required> Yes</label>
                     <label><input type="radio" name="current_medications" value="No" required> No</label>
-                </div>
-
-                <label>Are you willing to delay starting any new medications for depression or anxiety until after the first week of the study?</label>
-                <div class="yes-no">
-                    <label><input type="radio" name="delay_medications" value="Yes" required> Yes</label>
-                    <label><input type="radio" name="delay_medications" value="No" required> No</label>
-                </div>
-
-                <label>Are you willing to use an effective form of birth control (if applicable) throughout the study and for 90 days after completing the study?</label>
-                <div class="yes-no">
-                    <label><input type="radio" name="birth_control" value="Yes" required> Yes</label>
-                    <label><input type="radio" name="birth_control" value="No" required> No</label>
                 </div>
 
                 <label>Are you able to attend all study visits and follow all study procedures?</label>
@@ -169,8 +150,6 @@
                     <label><input type="radio" name="study_visits" value="Yes" required> Yes</label>
                     <label><input type="radio" name="study_visits" value="No" required> No</label>
                 </div>
-
-                <h2>Section 2: Exclusion Criteria</h2>
 
                 <label>Have you been diagnosed with any of the following conditions? (Check all that apply.)</label>
                 <div>
@@ -192,28 +171,10 @@
                     <label><input type="radio" name="psychosis" value="No" required> No</label>
                 </div>
 
-                <label>Have you had any recent suicidal thoughts, plans, or behaviors?</label>
-                <div class="yes-no">
-                    <label><input type="radio" name="suicidal_thoughts" value="Yes" required> Yes</label>
-                    <label><input type="radio" name="suicidal_thoughts" value="No" required> No</label>
-                </div>
-
-                <label>Do you currently use drugs or alcohol regularly, or have you been treated for substance use within the past year?</label>
-                <div class="yes-no">
-                    <label><input type="radio" name="substance_use" value="Yes" required> Yes</label>
-                    <label><input type="radio" name="substance_use" value="No" required> No</label>
-                </div>
-
                 <label>Do you have any significant medical conditions (e.g., heart disease, liver or kidney issues, neurological disorders) that may interfere with the study?</label>
                 <div class="yes-no">
                     <label><input type="radio" name="medical_conditions" value="Yes" required> Yes</label>
                     <label><input type="radio" name="medical_conditions" value="No" required> No</label>
-                </div>
-
-                <label>Have you been diagnosed with sleep apnea or narcolepsy?</label>
-                <div class="yes-no">
-                    <label><input type="radio" name="sleep_disorders" value="Yes" required> Yes</label>
-                    <label><input type="radio" name="sleep_disorders" value="No" required> No</label>
                 </div>
 
                 <label>Have you recently taken any of the following medications or treatments?</label>
@@ -221,34 +182,14 @@
                     <label><input type="checkbox" name="recent_treatments" value="Anticonvulsants"> Anticonvulsants (e.g., carbamazepine)</label>
                     <label><input type="checkbox" name="recent_treatments" value="Tricyclic antidepressants"> Tricyclic antidepressants</label>
                     <label><input type="checkbox" name="recent_treatments" value="Enzyme inhibitors"> Strong inhibitors or inducers of enzymes (e.g., rifampin, St. John’s Wort)</label>
-                    <label><input type="checkbox" name="recent_treatments" value="Ketamine or ECT"> Ketamine or electroconvulsive therapy (ECT)</label>
+                    <label><input type="checkbox" name="recent_treatments" value="Ketamine or ECT"> Ketamine or electroconvulsive therapy</label>
                     <label><input type="checkbox" name="recent_treatments" value="None"> None</label>
                 </div>
 
-                <label>Are you allergic to progesterone, brexanolone, or related medications?</label>
-                <div class="yes-no">
-                    <label><input type="radio" name="allergies" value="Yes" required> Yes</label>
-                    <label><input type="radio" name="allergies" value="No" required> No</label>
-                </div>
-
-                <label>Are you currently participating in another clinical trial or have you participated in one within the past 30 days?</label>
+                <label>Are you currently participating in another clinical trial?</label>
                 <div class="yes-no">
                     <label><input type="radio" name="other_trials" value="Yes" required> Yes</label>
                     <label><input type="radio" name="other_trials" value="No" required> No</label>
-                </div>
-
-                <h2>Section 3: Additional Questions</h2>
-
-                <label>Do you have any dietary restrictions or preferences that may affect study participation (e.g., avoiding grapefruit or pomelo)?</label>
-                <div class="yes-no">
-                    <label><input type="radio" name="dietary_restrictions" value="Yes" required> Yes</label>
-                    <label><input type="radio" name="dietary_restrictions" value="No" required> No</label>
-                </div>
-
-                <label>Have you recently had a COVID-19 infection (within the past 14 days)?</label>
-                <div class="yes-no">
-                    <label><input type="radio" name="recent_covid" value="Yes" required> Yes</label>
-                    <label><input type="radio" name="recent_covid" value="No" required> No</label>
                 </div>
 
                 <button type="submit">Submit Application</button>
@@ -261,7 +202,7 @@
 
         <div id="moderna-norovirus" class="form-container">
             <h1>Moderna Norovirus Study</h1>
-            <form action="https://formspree.io/f/moderna-norovirus" method="POST">
+            <form action="https://formspree.io/f/xnnqvkaz" method="POST">
                 <label for="name">Full Name:</label>
                 <input type="text" id="name" name="name" placeholder="Enter your full name" required>
 
