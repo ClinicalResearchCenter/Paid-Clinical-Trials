@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Solicitud</title>
+    <title>Application Form</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -73,7 +73,7 @@
             margin-top: -5px;
         }
 
-        /* Media Queries para pantallas más pequeñas */
+        /* Media Queries for smaller screens */
         @media screen and (max-width: 600px) {
             .form-container {
                 padding: 15px;
@@ -91,52 +91,52 @@
 </head>
 <body>
     <div class="form-container">
-        <h1>Formulario de Solicitud</h1>
+        <h1>Application Form</h1>
         <form action="https://formspree.io/f/xnnqvkaz" method="POST">
-            <label for="name">Nombre Completo:</label>
-            <input type="text" id="name" name="name" placeholder="Ingrese su nombre completo" required>
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
             
-            <label for="phone">Número de Teléfono:</label>
-            <input type="tel" id="phone" name="phone" placeholder="Ingrese su número de teléfono" required>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
 
-            <label for="email">Correo Electrónico:</label>
-            <input type="email" id="email" name="email" placeholder="Ingrese su dirección de correo electrónico" required>
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
             
-            <label for="age">Edad:</label>
-            <input type="number" id="age" name="age" placeholder="Ingrese su edad" required>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" placeholder="Enter your age" required>
 
-            <label>¿Ha tenido síntomas recientes o en curso de norovirus (vómitos o diarrea) en los últimos 14 días?</label>
+            <label>Have you experienced recent or ongoing norovirus symptoms (vomiting or diarrhea) in the last 14 days?</label>
             <div class="yes-no">
-                <label><input type="radio" name="norovirus_symptoms" value="Sí" required> Sí</label>
+                <label><input type="radio" name="norovirus_symptoms" value="Yes" required> Yes</label>
                 <label><input type="radio" name="norovirus_symptoms" value="No" required> No</label>
             </div>
 
-            <label>¿Ha tenido antecedentes de reacciones alérgicas graves a las vacunas?</label>
+            <label>Do you have a history of severe allergic reactions to vaccines?</label>
             <div class="yes-no">
-                <label><input type="radio" name="allergic_reactions" value="Sí" required> Sí</label>
+                <label><input type="radio" name="allergic_reactions" value="Yes" required> Yes</label>
                 <label><input type="radio" name="allergic_reactions" value="No" required> No</label>
             </div>
 
-            <label>¿Ha participado en otro estudio en los últimos 6 meses?</label>
+            <label>Have you participated in another study within the last 6 months?</label>
             <div class="yes-no">
-                <label><input type="radio" name="participation_in_study" value="Sí" required> Sí</label>
+                <label><input type="radio" name="participation_in_study" value="Yes" required> Yes</label>
                 <label><input type="radio" name="participation_in_study" value="No" required> No</label>
             </div>
 
-            <label>¿Tiene programada una cirugía en los próximos 28 días, o ha sido sometido a una cirugía mayor en los últimos 28 días?</label>
+            <label>Do you have a surgery scheduled in the next 28 days, or have you had major surgery in the last 28 days?</label>
             <div class="yes-no">
-                <label><input type="radio" name="surgery_schedule" value="Sí" required> Sí</label>
+                <label><input type="radio" name="surgery_schedule" value="Yes" required> Yes</label>
                 <label><input type="radio" name="surgery_schedule" value="No" required> No</label>
             </div>
 
-            <label for="additional-info">Información Adicional:</label>
-            <textarea id="additional-info" name="additional_info" placeholder="Proporcione cualquier detalle relevante sobre su salud o contexto" rows="4"></textarea>
-            <div class="additional-info">Por favor incluya cualquier contexto o detalles importantes sobre su salud.</div>
+            <label for="additional-info">Additional Information:</label>
+            <textarea id="additional-info" name="additional_info" placeholder="Provide any relevant details about your health or context" rows="4"></textarea>
+            <div class="additional-info">Please include any important context or details about your health.</div>
             
-            <button type="submit">Enviar Solicitud</button>
+            <button type="submit">Submit Application</button>
 
             <div class="note">
-                <p><strong>Nota:</strong> Todos los campos son obligatorios, salvo que se indique lo contrario. Si tiene alguna pregunta o preocupación, por favor contáctenos antes de enviar el formulario.</p>
+                <p><strong>Note:</strong> All fields are mandatory unless otherwise stated. If you have any questions or concerns, please contact us before submitting the form.</p>
             </div>
         </form>
     </div>
