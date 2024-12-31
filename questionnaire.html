@@ -48,6 +48,11 @@
         .study-options button:hover {
             background: #0056b3;
         }
+        .study-info {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 5px;
+        }
         .form-container {
             display: none;
             max-height: 70vh;
@@ -80,6 +85,11 @@
         .yes-no label {
             flex: 1;
             text-align: center;
+        }
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
         }
         textarea {
             resize: vertical;
@@ -114,7 +124,9 @@
         <h1>Select a Study</h1>
         <div class="study-options">
             <button onclick="showForm('postpartum-depression')">Postpartum Depression</button>
-            <button onclick="showForm('moderna-norovirus')">Moderna Norovirus</button>
+            <div class="study-info">Compensation of $700 + | Study Duration: 30 - 60 days</div>
+            <button onclick="showForm('norovirus-vaccine')">Norovirus Vaccine</button>
+            <div class="study-info">Compensation of $2000 + | Study Duration: 6 - 12 months</div>
         </div>
 
         <div id="postpartum-depression" class="form-container">
@@ -132,64 +144,21 @@
                     <label><input type="radio" name="postpartum_period" value="No" required> No</label>
                 </div>
 
-                <label>Are you willing to temporarily stop breastfeeding (if applicable) from the first day of the study until 14 days after starting the study medication?</label>
-                <div class="yes-no">
-                    <label><input type="radio" name="stop_breastfeeding" value="Yes" required> Yes</label>
-                    <label><input type="radio" name="stop_breastfeeding" value="No" required> No</label>
-                    <label><input type="radio" name="stop_breastfeeding" value="Not Applicable" required> Not Applicable</label>
-                </div>
-
-                <label>Are you currently taking any antidepressants or anti-anxiety medications?</label>
-                <div class="yes-no">
-                    <label><input type="radio" name="current_medications" value="Yes" required> Yes</label>
-                    <label><input type="radio" name="current_medications" value="No" required> No</label>
-                </div>
-
-                <label>Are you able to attend all study visits and follow all study procedures?</label>
-                <div class="yes-no">
-                    <label><input type="radio" name="study_visits" value="Yes" required> Yes</label>
-                    <label><input type="radio" name="study_visits" value="No" required> No</label>
-                </div>
-
                 <label>Have you been diagnosed with any of the following conditions? (Check all that apply.)</label>
-                <div>
+                <div class="checkbox-group">
                     <label><input type="checkbox" name="conditions" value="Bipolar disorder"> Bipolar disorder</label>
                     <label><input type="checkbox" name="conditions" value="Schizophrenia"> Schizophrenia</label>
                     <label><input type="checkbox" name="conditions" value="Schizoaffective disorder"> Schizoaffective disorder</label>
                     <label><input type="checkbox" name="conditions" value="None of the above"> None of the above</label>
                 </div>
 
-                <label>Have you previously tried two or more types of antidepressants that did not work for you?</label>
-                <div class="yes-no">
-                    <label><input type="radio" name="antidepressants_failed" value="Yes" required> Yes</label>
-                    <label><input type="radio" name="antidepressants_failed" value="No" required> No</label>
-                </div>
-
-                <label>Are you currently experiencing active psychosis or taking antipsychotic medications?</label>
-                <div class="yes-no">
-                    <label><input type="radio" name="psychosis" value="Yes" required> Yes</label>
-                    <label><input type="radio" name="psychosis" value="No" required> No</label>
-                </div>
-
-                <label>Do you have any significant medical conditions (e.g., heart disease, liver or kidney issues, neurological disorders) that may interfere with the study?</label>
-                <div class="yes-no">
-                    <label><input type="radio" name="medical_conditions" value="Yes" required> Yes</label>
-                    <label><input type="radio" name="medical_conditions" value="No" required> No</label>
-                </div>
-
                 <label>Have you recently taken any of the following medications or treatments?</label>
-                <div>
+                <div class="checkbox-group">
                     <label><input type="checkbox" name="recent_treatments" value="Anticonvulsants"> Anticonvulsants (e.g., carbamazepine)</label>
                     <label><input type="checkbox" name="recent_treatments" value="Tricyclic antidepressants"> Tricyclic antidepressants</label>
                     <label><input type="checkbox" name="recent_treatments" value="Enzyme inhibitors"> Strong inhibitors or inducers of enzymes (e.g., rifampin, St. John’s Wort)</label>
                     <label><input type="checkbox" name="recent_treatments" value="Ketamine or ECT"> Ketamine or electroconvulsive therapy</label>
                     <label><input type="checkbox" name="recent_treatments" value="None"> None</label>
-                </div>
-
-                <label>Are you currently participating in another clinical trial?</label>
-                <div class="yes-no">
-                    <label><input type="radio" name="other_trials" value="Yes" required> Yes</label>
-                    <label><input type="radio" name="other_trials" value="No" required> No</label>
                 </div>
 
                 <button type="submit">Submit Application</button>
@@ -200,9 +169,15 @@
             </form>
         </div>
 
-        <div id="moderna-norovirus" class="form-container">
-            <h1>Moderna Norovirus Study</h1>
+        <div id="norovirus-vaccine" class="form-container">
+            <h1>Norovirus Vaccine Study</h1>
             <form action="https://formspree.io/f/xnnqvkaz" method="POST">
+                <label>Are you over the age of 70 years old?</label>
+                <div class="yes-no">
+                    <label><input type="radio" name="over_70" value="Yes" required> Yes</label>
+                    <label><input type="radio" name="over_70" value="No" required> No</label>
+                </div>
+
                 <label for="name">Full Name:</label>
                 <input type="text" id="name" name="name" placeholder="Enter your full name" required>
 
@@ -211,9 +186,6 @@
 
                 <label for="email">Email Address:</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email address" required>
-
-                <label for="age">Age:</label>
-                <input type="number" id="age" name="age" placeholder="Enter your age" required>
 
                 <label>Have you experienced recent or ongoing norovirus symptoms (vomiting or diarrhea) in the last 14 days?</label>
                 <div class="yes-no">
