@@ -50,9 +50,54 @@
         }
         .form-container {
             display: none;
+            max-height: 70vh;
+            overflow-y: auto;
+            text-align: left;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
         }
         .form-container.active {
             display: block;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .yes-no {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .yes-no label {
+            flex: 1;
+            text-align: center;
+        }
+        textarea {
+            resize: vertical;
+        }
+        button {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 12px;
+            font-size: 1rem;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .note {
+            font-size: 0.9rem;
+            color: #555;
         }
     </style>
     <script>
