@@ -53,6 +53,23 @@
             color: #555;
             margin-top: 5px;
         }
+        .more-info {
+            font-size: 0.8rem;
+            color: #007bff;
+            cursor: pointer;
+            margin-top: 5px;
+            text-decoration: underline;
+        }
+        .info-box {
+            display: none;
+            background: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+            text-align: left;
+            font-size: 0.9rem;
+            border-radius: 5px;
+        }
         .form-container {
             display: none;
             max-height: 70vh;
@@ -112,6 +129,11 @@
             });
             document.getElementById(study).classList.add('active');
         }
+
+        function toggleInfoBox(id) {
+            const box = document.getElementById(id);
+            box.style.display = box.style.display === 'none' || box.style.display === '' ? 'block' : 'none';
+        }
     </script>
 </head>
 <body>
@@ -120,8 +142,28 @@
         <div class="study-options">
             <button onclick="showForm('postpartum-depression')">Postpartum Depression</button>
             <div class="study-info">Compensation of $700 + | Study Duration: 30 - 60 days</div>
+            <div class="more-info" onclick="toggleInfoBox('postpartum-info')">More Info</div>
+            <div id="postpartum-info" class="info-box">
+                Screening Visit: $130.<br>
+                Treatment Period (Days 1–4): $450.<br>
+                Follow-Up Visits (Days 8 and 30): $130 per visit.<br>
+                Unscheduled Visits: $130 per visit if required.
+            </div>
+
             <button onclick="showForm('norovirus-vaccine')">Norovirus Vaccine</button>
             <div class="study-info">Compensation of $2000 + | Study Duration: 6 - 12 months</div>
+            <div class="more-info" onclick="toggleInfoBox('norovirus-info')">More Info</div>
+            <div id="norovirus-info" class="info-box">
+                <strong>Clinic Visits:</strong><br>
+                Screening visit and vaccination visit(s): $75 per visit, plus an additional $50 if you do not need transportation.<br>
+                Total visits: 6-7 visits.<br><br>
+                <strong>E-Diary Participation:</strong><br>
+                Daily entries for the first week: $10 per day.<br>
+                Weekly entries afterward: $5 per week.<br><br>
+                <strong>Phone Calls:</strong><br>
+                Monthly check-ins: $56 per call.<br>
+                Total compensation depends on the number of visits, diary entries, and phone calls completed during the trial.
+            </div>
         </div>
 
         <div id="postpartum-depression" class="form-container">
@@ -156,30 +198,6 @@
                 <div class="yes-no">
                     <label><input type="radio" name="study_visits" value="Yes" required> Yes</label>
                     <label><input type="radio" name="study_visits" value="No" required> No</label>
-                </div>
-
-                <label>Have you previously tried two or more types of antidepressants that did not work for you?</label>
-                <div class="yes-no">
-                    <label><input type="radio" name="antidepressants_failed" value="Yes" required> Yes</label>
-                    <label><input type="radio" name="antidepressants_failed" value="No" required> No</label>
-                </div>
-
-                <label>Are you currently experiencing active psychosis or taking antipsychotic medications?</label>
-                <div class="yes-no">
-                    <label><input type="radio" name="psychosis" value="Yes" required> Yes</label>
-                    <label><input type="radio" name="psychosis" value="No" required> No</label>
-                </div>
-
-                <label>Do you have any significant medical conditions (e.g., heart disease, liver or kidney issues, neurological disorders) that may interfere with the study?</label>
-                <div class="yes-no">
-                    <label><input type="radio" name="medical_conditions" value="Yes" required> Yes</label>
-                    <label><input type="radio" name="medical_conditions" value="No" required> No</label>
-                </div>
-
-                <label>Are you currently participating in another clinical trial?</label>
-                <div class="yes-no">
-                    <label><input type="radio" name="other_trials" value="Yes" required> Yes</label>
-                    <label><input type="radio" name="other_trials" value="No" required> No</label>
                 </div>
 
                 <button type="submit">Submit Application</button>
