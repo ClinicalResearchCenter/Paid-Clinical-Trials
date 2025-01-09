@@ -44,6 +44,16 @@
             font-size: 1rem;
             border-radius: 5px;
             margin: 10px;
+         <button onclick="showForm('obesity-clinical-trial')">Obesity Clinical Trial</button>
+<div class="study-info">Compensation of $1300 + | Study Duration: 10 months</div>
+<div class="more-info" onclick="toggleInfoBox('obesity-info')">More Info</div>
+<div id="obesity-info" class="info-box">
+    Compensation for Participation:<br>
+    Screening Visit: $100 per completed visit.<br>
+    Travel Reimbursement: $57 per visit for travel expenses.<br>
+    Total Possible Compensation: Up to $1,300 if you complete all 13 visits.
+</div>
+   
         }
         .study-options button:hover {
             background: #0056b3;
@@ -222,65 +232,6 @@
                 </div>
             </form>
         </div>
-
-        <div id="norovirus-vaccine" class="form-container">
-            <h1>Norovirus Vaccine Study</h1>
-            <form action="https://formspree.io/f/xnnqvkaz" method="POST">
-                <label for="name">Full Name:</label>
-                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-
-                <label for="dob">Date of Birth:</label>
-                <input type="date" id="dob" name="dob" required>
-
-                <label for="gender">Gender:</label>
-                <input type="text" id="gender" name="gender" placeholder="Enter your gender" required>
-
-                <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-
-                <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
-
-                <label>Are you over the age of 70 years old?</label>
-                <div class="yes-no">
-                    <label><input type="radio" name="over_70" value="Yes" required> Yes</label>
-                    <label><input type="radio" name="over_70" value="No" required> No</label>
-                </div>
-
-                <label>Have you experienced recent or ongoing norovirus symptoms (vomiting or diarrhea) in the last 14 days?</label>
-                <div class="yes-no">
-                    <label><input type="radio" name="norovirus_symptoms" value="Yes" required> Yes</label>
-                    <label><input type="radio" name="norovirus_symptoms" value="No" required> No</label>
-                </div>
-
-                <label>Do you have a history of severe allergic reactions to vaccines?</label>
-                <div class="yes-no">
-                    <label><input type="radio" name="allergic_reactions" value="Yes" required> Yes</label>
-                    <label><input type="radio" name="allergic_reactions" value="No" required> No</label>
-                </div>
-
-                <label>Have you participated in another study within the last 6 months?</label>
-                <div class="yes-no">
-                    <label><input type="radio" name="participation_in_study" value="Yes" required> Yes</label>
-                    <label><input type="radio" name="participation_in_study" value="No" required> No</label>
-                </div>
-
-                <label>Do you have a surgery scheduled in the next 28 days, or have you had major surgery in the last 28 days?</label>
-                <div class="yes-no">
-                    <label><input type="radio" name="surgery_schedule" value="Yes" required> Yes</label>
-                    <label><input type="radio" name="surgery_schedule" value="No" required> No</label>
-                </div>
-
-                <button type="submit">Submit Application</button>
-
-                <div class="note">
-                    <p><strong>Note:</strong> All fields are mandatory unless otherwise stated. If you have any questions or concerns, please contact us before submitting the form.</p>
-                </div>
-            </form>
-        </div>
-    </div>
-</body>
-</html>
 <div id="obesity-clinical-trial" class="form-container">
     <h1>Obesity Clinical Trial</h1>
     <form action="https://formspree.io/f/xgvvreqk" method="POST">
@@ -356,3 +307,62 @@
         </div>
     </form>
 </div>
+
+        <div id="norovirus-vaccine" class="form-container">
+            <h1>Norovirus Vaccine Study</h1>
+            <form action="https://formspree.io/f/xnnqvkaz" method="POST">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+
+                <label for="gender">Gender:</label>
+                <input type="text" id="gender" name="gender" placeholder="Enter your gender" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+                <label>Are you over the age of 70 years old?</label>
+                <div class="yes-no">
+                    <label><input type="radio" name="over_70" value="Yes" required> Yes</label>
+                    <label><input type="radio" name="over_70" value="No" required> No</label>
+                </div>
+
+                <label>Have you experienced recent or ongoing norovirus symptoms (vomiting or diarrhea) in the last 14 days?</label>
+                <div class="yes-no">
+                    <label><input type="radio" name="norovirus_symptoms" value="Yes" required> Yes</label>
+                    <label><input type="radio" name="norovirus_symptoms" value="No" required> No</label>
+                </div>
+
+                <label>Do you have a history of severe allergic reactions to vaccines?</label>
+                <div class="yes-no">
+                    <label><input type="radio" name="allergic_reactions" value="Yes" required> Yes</label>
+                    <label><input type="radio" name="allergic_reactions" value="No" required> No</label>
+                </div>
+
+                <label>Have you participated in another study within the last 6 months?</label>
+                <div class="yes-no">
+                    <label><input type="radio" name="participation_in_study" value="Yes" required> Yes</label>
+                    <label><input type="radio" name="participation_in_study" value="No" required> No</label>
+                </div>
+
+                <label>Do you have a surgery scheduled in the next 28 days, or have you had major surgery in the last 28 days?</label>
+                <div class="yes-no">
+                    <label><input type="radio" name="surgery_schedule" value="Yes" required> Yes</label>
+                    <label><input type="radio" name="surgery_schedule" value="No" required> No</label>
+                </div>
+
+                <button type="submit">Submit Application</button>
+
+                <div class="note">
+                    <p><strong>Note:</strong> All fields are mandatory unless otherwise stated. If you have any questions or concerns, please contact us before submitting the form.</p>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
