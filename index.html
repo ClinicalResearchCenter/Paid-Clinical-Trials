@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paid Clinical Trials</title>
+    <title>Join Our Paid Clinical Trials</title>
     <style>
         /* Basic Reset */
         * {
@@ -109,6 +109,69 @@
         a:hover {
             text-decoration: underline;
         }
+
+        .review-board {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .review-board h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            color: #1f78b4;
+        }
+
+        .review-board p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .review-board .review {
+            margin-bottom: 15px;
+        }
+
+        .bmi-calculator {
+            margin-top: 40px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .bmi-calculator h3 {
+            font-size: 1.6rem;
+            color: #1f78b4;
+            margin-bottom: 20px;
+        }
+
+        .bmi-calculator input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1.1rem;
+        }
+
+        .bmi-calculator button {
+            padding: 12px;
+            background: #ff6363;
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .bmi-calculator button:hover {
+            background-color: #e25757;
+        }
     </style>
 </head>
 <body>
@@ -147,11 +210,65 @@
         <p>For more details, visit <a href="https://floridacrc.com/" target="_blank">Florida CRC</a>.</p>
     </section>
 
+    <section>
+        <h2>Become a Private Recruiter</h2>
+        <p>Do you want to make extra cash by becoming a recruiter? If you know anyone who would qualify for our studies, you can refer them to us. For every referral that enrolls, you can earn a bonus ranging from $20 to $100, depending on the study.</p>
+        <p>To refer someone, please call us at <strong>954-932-0843</strong> and specify the study.</p>
+    </section>
+
+    <section>
+        <h2>Our Locations</h2>
+        <p>Visit us at one of our convenient locations:</p>
+        <ul>
+            <li><strong>Pompano Beach Office:</strong> 550 SW 3rd St, Pompano Beach, FL 33060, US</li>
+            <li><strong>Boynton Beach Office:</strong> 709 S Federal Hwy, Boynton Beach, FL 33435, USA</li>
+        </ul>
+    </section>
+
+    <!-- Review Board -->
+    <div class="review-board">
+        <h3>What Our Participants Say</h3>
+        <div class="review">
+            <p><strong>John D.:</strong> "I had a wonderful experience. The staff was professional, and I felt confident knowing that I was contributing to valuable research. Plus, the compensation was great!"</p>
+        </div>
+        <div class="review">
+            <p><strong>Sarah W.:</strong> "Being part of a clinical trial was an eye-opening experience. I felt safe, well-informed, and appreciated the timely payments. Highly recommend!"</p>
+        </div>
+        <div class="review">
+            <p><strong>Emily R.:</strong> "I referred a friend, and they enrolled in a study. I got a referral bonus and was happy to help advance science. Great opportunity!"</p>
+        </div>
+    </div>
+
+    <!-- BMI Calculator -->
+    <div class="bmi-calculator">
+        <h3>BMI Calculator</h3>
+        <p>Calculate your Body Mass Index (BMI) to see if you qualify for certain studies.</p>
+        <input type="number" id="weight" placeholder="Enter weight (kg)" required>
+        <input type="number" id="height" placeholder="Enter height (cm)" required>
+        <button onclick="calculateBMI()">Calculate BMI</button>
+        <p id="bmi-result"></p>
+    </div>
+
     <footer>
         <p>&copy; 2024 Clinical Trials. All rights reserved.</p>
     </footer>
 
     <!-- The script for chat widget or popup integration -->
     <script async src="https://static.sppopups.com/assets/loader.js" data-chats-widget-id="deecede3-037c-4a37-b912-198ac4c58223"></script>
+
+    <script>
+        function calculateBMI() {
+            var weight = parseFloat(document.getElementById('weight').value);
+            var height = parseFloat(document.getElementById('height').value) / 100; // Convert cm to meters
+
+            if (!weight || !height) {
+                alert("Please enter valid weight and height values.");
+                return;
+            }
+
+            var bmi = weight / (height * height);
+            document.getElementById('bmi-result').textContent = "Your BMI is: " + bmi.toFixed(2);
+        }
+    </script>
 </body>
 </html>
