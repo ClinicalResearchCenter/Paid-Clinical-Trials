@@ -243,8 +243,9 @@
     <div class="bmi-calculator">
         <h3>BMI Calculator</h3>
         <p>Calculate your Body Mass Index (BMI) to see if you qualify for certain studies.</p>
-        <input type="number" id="weight" placeholder="Enter weight (kg)" required>
-        <input type="number" id="height" placeholder="Enter height (cm)" required>
+        <input type="number" id="weight" placeholder="Enter weight (lbs)" required>
+        <input type="number" id="feet" placeholder="Enter height (feet)" required>
+        <input type="number" id="inches" placeholder="Enter height (inches)" required>
         <button onclick="calculateBMI()">Calculate BMI</button>
         <p id="bmi-result"></p>
     </div>
@@ -259,14 +260,17 @@
     <script>
         function calculateBMI() {
             var weight = parseFloat(document.getElementById('weight').value);
-            var height = parseFloat(document.getElementById('height').value) / 100; // Convert cm to meters
+            var feet = parseFloat(document.getElementById('feet').value);
+            var inches = parseFloat(document.getElementById('inches').value);
 
-            if (!weight || !height) {
+            if (!weight || !feet || !inches) {
                 alert("Please enter valid weight and height values.");
                 return;
             }
 
-            var bmi = weight / (height * height);
+            var heightInInches = (feet * 12) + inches; // Convert height to inches
+            var heightInMeters = heightInInches * 0.0254; // Convert inches to meters
+            var bmi = (weight * 0.453592) / (heightInMeters * heightInMeters); // Convert weight to kg and calculate BMI
             document.getElementById('bmi-result').textContent = "Your BMI is: " + bmi.toFixed(2);
         }
     </script>
