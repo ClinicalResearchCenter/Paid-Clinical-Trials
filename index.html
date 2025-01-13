@@ -49,12 +49,31 @@
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             text-decoration: none;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            animation: bounce 1.5s infinite, glow 1.5s infinite alternate;
         }
 
-        .apply-now:hover {
-            background-color: #e25757;
-            transform: translateY(-5px);
+        /* Bouncing animation */
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Glowing animation */
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 5px #ff6363, 0 0 10px #ff6363, 0 0 15px #ff6363;
+            }
+            100% {
+                box-shadow: 0 0 10px #ff6363, 0 0 15px #ff6363, 0 0 20px #ff6363;
+            }
         }
 
         section {
@@ -175,11 +194,22 @@
     </style>
 </head>
 <body>
+    <!-- BMI Calculator at the top of the page -->
+    <div class="bmi-calculator">
+        <h3>BMI Calculator for Obesity Trial</h3>
+        <p>Calculate your Body Mass Index (BMI) to see if you qualify for our Obesity Trial.</p>
+        <input type="number" id="weight" placeholder="Enter weight (lbs)" required>
+        <input type="number" id="feet" placeholder="Enter height (feet)" required>
+        <input type="number" id="inches" placeholder="Enter height (inches)" required>
+        <button onclick="calculateBMI()">Calculate BMI</button>
+        <p id="bmi-result"></p>
+    </div>
+
     <header>
         <h1>Join Our Paid Clinical Trials</h1>
     </header>
 
-    <!-- Added the class for the popup -->
+    <!-- Apply Now Button -->
     <a href="questionnaire.html" class="apply-now sp_popup_3ac17892-36f9-49da-affa-f142234a7cd9">Apply Now</a>
 
     <section>
@@ -237,17 +267,6 @@
         <div class="review">
             <p><strong>Emily R.:</strong> "I referred a friend, and they enrolled in a study. I got a referral bonus and was happy to help advance science. Great opportunity!"</p>
         </div>
-    </div>
-
-    <!-- BMI Calculator -->
-    <div class="bmi-calculator">
-        <h3>BMI Calculator</h3>
-        <p>Calculate your Body Mass Index (BMI) to see if you qualify for certain studies.</p>
-        <input type="number" id="weight" placeholder="Enter weight (lbs)" required>
-        <input type="number" id="feet" placeholder="Enter height (feet)" required>
-        <input type="number" id="inches" placeholder="Enter height (inches)" required>
-        <button onclick="calculateBMI()">Calculate BMI</button>
-        <p id="bmi-result"></p>
     </div>
 
     <footer>
